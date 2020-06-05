@@ -632,5 +632,5 @@ class SectionsInfo(dict):
             self.sections[archive] = stored
 
         for obj_key in stored.keys():
-            if obj_key == obj + ".o" or obj_key == obj + ".c.obj":
+            if any(obj_key == obj + ext for ext in (".o", ".c.obj", ".c.o")):
                 return stored[obj_key]
